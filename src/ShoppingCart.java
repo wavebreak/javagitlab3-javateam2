@@ -34,8 +34,18 @@ public class ShoppingCart {
     }
 
     public void modifyItem(ItemToPurchase item) {
+        for (int i = 0; i < cartItems.size(); i++) {
 
+            if (cartItems.get(i).getName() == item.getName()) {
+
+                cartItems.get(i).setQuantity(item.getQuantity());
+            }
+            else {
+                System.out.println("Item not found in cart. Nothing modified.");
+            }
+        }
     }
+
 
     public int getNumItemsInCart() {
 
