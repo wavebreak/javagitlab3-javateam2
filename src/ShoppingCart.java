@@ -38,11 +38,19 @@ public class ShoppingCart {
     }
 
     public int getNumItemsInCart() {
-
+        int countItems = 0;
+        for(ItemToPurchase it: cartItems) {
+            countItems += it.getQuantity() ;
+        }
+        return countItems;
     }
 
     public int getCostOfCart() {
-
+        int totalCostCart = 0;
+        for (ItemToPurchase it : cartItems) {
+            totalCostCart += it.getQuantity() * it.getPrice();
+        }
+        return totalCostCart;
     }
 
     public void printTotal() {
