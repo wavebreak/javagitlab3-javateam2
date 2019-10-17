@@ -30,7 +30,21 @@ public class ShoppingCart {
     }
 
     public void removeItem(String name) {
+        //Removes item from cartItems array. Has a string (an item's name) parameter. Does not return anything.
+        //If item name cannot be found, output this message: Item not found in cart. Nothing removed.
+        boolean found = false;
+        int i = 0;
 
+        while((!found) && (i < cartItems.size())){
+            if (cartItems.get(i).equals(name)) {
+                cartItems.remove(i);
+                found = true;
+            }
+            ++i;
+        }
+        if((!found) && (i == cartItems.size())) {
+            System.out.println("Item not found in cart. Nothing removed.");
+        }
     }
 
     public void modifyItem(ItemToPurchase item) {
@@ -48,11 +62,19 @@ public class ShoppingCart {
 
 
     public int getNumItemsInCart() {
-
+        int countItems = 0;
+        for(ItemToPurchase it: cartItems) {
+            countItems += it.getQuantity() ;
+        }
+        return countItems;
     }
 
     public int getCostOfCart() {
-
+        int totalCostCart = 0;
+        for (ItemToPurchase it : cartItems) {
+            totalCostCart += it.getQuantity() * it.getPrice();
+        }
+        return totalCostCart;
     }
 
     public void printTotal() {
