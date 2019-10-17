@@ -50,7 +50,7 @@ public class ShoppingCart {
     public void modifyItem(ItemToPurchase item) {
         for (int i = 0; i < cartItems.size(); i++) {
 
-            if (cartItems.get(i).getName() == item.getName()) {
+            if (cartItems.get(i).getName().equals(item.getName())) {
 
                 cartItems.get(i).setQuantity(item.getQuantity());
             }
