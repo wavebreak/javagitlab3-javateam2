@@ -38,14 +38,12 @@ public class ShoppingCart {
             if (cartItems.get(i).getName().equals(name)) {
                 cartItems.remove(i);
                 found = true;
-            }
-            if(!found) {
-                System.out.println("Item not found in cart. Nothing modified.");
-            }
-            if(found) {
                 break;
             }
         }
+        if(!found) {
+                System.out.println("Item not found in cart. Nothing removed.");
+            }
     }
 
     public void modifyItem(ItemToPurchase item) {
